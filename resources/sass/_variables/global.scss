@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
+.font-family-karla { font-family: karla; }
+.bg-sidebar { background: #3d68ff; }
+.cta-btn { color: #3d68ff; }
+.upgrade-btn { background: #1947ee; }
+.upgrade-btn:hover { background: #0038fd; }
+.active-nav-link { background: #1947ee; }
+.nav-item:hover { background: #1947ee; }
+.account-link:hover { background: #3d68ff; }
+
+
+
+
+.btn-submit{
+  @apply px-3 py-2 rounded-lg text-white inline-block bg-blue-700;
+
+  &:hover{
+    box-shadow: inset 5px 5px 28px 28px rgba(121, 210, 5, 0.1);
+  }
+}
+.btn-redirect{
+  @apply mx-5   px-3 py-2 rounded-lg text-white inline-block bg-green-600;
+
+  &:hover{
+    box-shadow: inset 5px 5px 28px 28px rgba(121, 210, 5, 0.1);
+  }
+}
+.btn-delete{
+  @apply mx-5   px-3 py-2 rounded-lg text-white inline-block bg-red-600;
+
+  &:hover{
+    box-shadow: inset 5px 5px 28px 28px rgba(121, 210, 5, 0.1);
+  }
+}
+
+
+.btn-cancel {
+  @apply px-3 py-2 rounded-lg text-white inline-block bg-gray-500;
+
+  &:hover{
+    box-shadow: inset 5px 5px 28px 28px gainsboro;
+  }
+}
