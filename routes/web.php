@@ -57,6 +57,12 @@ Route::post('/update_shop_confirm/{id}',$controller_path . '\Pages\ShopControlle
 Route::get('/shop_details/{id}', $controller_path . '\Pages\shopController@shop_details');
 
 
+Route::get('/user/shop', $controller_path . '\Pages\ShopController@shop_all');
+Route::get('/shop_search', $controller_path . '\Pages\ShopController@shop_search');
+
+
+
+
 
 // product
 Route::get('/product', $controller_path . '\Pages\ProductController@product_page');
@@ -66,6 +72,7 @@ Route::get('/update_product/{id}',$controller_path . '\Pages\ProductController@u
 Route::post('/update_product_confirm/{id}',$controller_path . '\Pages\ProductController@update_product_confirm');
 Route::get('/product_details/{slug}', $controller_path . '\Pages\ProductController@product_details');
 
+Route::get('/user/product', $controller_path . '\Pages\ProductController@product_all');
 Route::get('/product_search', $controller_path . '\Pages\ProductController@product_search');
 
 
@@ -102,5 +109,3 @@ Route::get('/send_email/{id}', $controller_path . '\Pages\OrderController@send_e
 Route::post('/send_user_email/{id}', $controller_path . '\Pages\OrderController@send_user_email');
 
 
-
-Route::get('/user/product', $controller_path . '\Pages\ProductController@product_all');

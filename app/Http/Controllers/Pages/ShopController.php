@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Shop;
+use App\Models\Category;
+use App\Models\Cart;
+use App\Models\Wishlist;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
 
@@ -235,14 +238,161 @@ class ShopController extends Controller
               
     }
 
-
+      
                  
-            public function shop_details($id){ 
+    public function shop_all(){
 
 
-                   $shop=shop::find($id);
+      if(Auth::id())
+      {
+        $id=Auth::user()->id;
+        $carts=cart::where('user_id','=' ,$id)->get();
+        $total_cart=Cart::where('user_id','=' ,$id)->get()->count();
+      
+        $shops = shop::all();
+        $categories = Category::all();
+        $nshops = shop::Latest()->take(4)->get();
+      
+      
+        
+      
+      $wishlists=Wishlist::where('user_id','=' ,$id)->get();
+      $total_wishlist=Wishlist::where('user_id','=' ,$id)->get()->count();
+      $total_shop=shop::all()->count();
+      
+        return view('content.users.pages..store.store_show',compact('shops','categories','nshops','carts','total_cart','wishlists','total_wishlist','total_shop'));
+      }
+      else{
+      
+        $shops = shop::all();
+        $categories = Category::all();
+        $nshops = shop::Latest()->take(4)->get();
+        $total_shop=shop::all()->count();
+      
+        return view('content.users.pages..store.store_show',compact('shops','categories','nshops','total_shop'));
+       }
+      
+      
+      }
+      
+      
+      
+      
+      public function shop_search(Request $request)
+      {
+      
+      if(Auth::id())
+      {
+      $id=Auth::user()->id;
+      $carts=cart::where('user_id','=' ,$id)->get();
+      $total_cart=Cart::where('user_id','=' ,$id)->get()->count();  
+      $wishlists=Wishlist::where('user_id','=' ,$id)->get();
+      $total_wishlist=Wishlist::where('user_id','=' ,$id)->get()->count();
+      
+      
+      // $shops = shop::all();
+      $categories = Category::all();
+      $search_text=$request->search;
+      $shops=shop::where('name','LIKE',"%$search_text%")->orWhere
+      ('shop','LIKE',"%$search_text%")->paginate(10);
+      
+      
+      
+      
+      return view('content.users.pages..store.store_show',compact('shops','categories','carts','total_cart','wishlists', 'total_wishlist'));
+      }
+      else{
+      
+      // $shops = shop::all();
+      $categories = Category::all();
+      $search_text=$request->search;
+      $shops=shop::where('name','LIKE',"%$search_text%")->orWhere
+      ('shop','LIKE',"%$search_text%")->paginate(10);
+      
+      
+      return view('content.users.pages..store.store_show',compact('shops','categories'));
+      }
+      
+      }
+      
+      
 
-                return view('content.users.pages.shop_details',compact('shop'));
-              }
+
+
+        public function product_search(Request $request)
+        {
+
+          if(Auth::id())
+          {
+            $id=Auth::user()->id;
+            $carts=cart::where('user_id','=' ,$id)->get();
+            $total_cart=Cart::where('user_id','=' ,$id)->get()->count();  
+            $wishlists=Wishlist::where('user_id','=' ,$id)->get();
+            $total_wishlist=Wishlist::where('user_id','=' ,$id)->get()->count();
+
+
+            // $products = Product::all();
+            $categories = Category::all();
+            $search_text=$request->search;
+            $products=product::where('product','LIKE',"%$search_text%")->orWhere
+            ('shop','LIKE',"%$search_text%")->orWhere
+            ('category','LIKE',"%$search_text%")->paginate(10);
+
+
+
+          
+            return view('content.users.pages..product.product_show',compact('products','categories','carts','total_cart','wishlists', 'total_wishlist'));
+          }
+          else{
+          
+            // $products = Product::all();
+            $categories = Category::all();
+            $search_text=$request->search;
+            $products=product::where('product','LIKE',"%$search_text%")->orWhere
+            ('shop','LIKE',"%$search_text%")->orWhere
+            ('category','LIKE',"%$search_text%")->paginate(10);
+          
+            return view('content.users.pages..product.product_show',compact('products','categories'));
+           }
+
+        }
+           
+
+
+              
+                 
+            public function shop_details($id){
+
+
+              if(Auth::id())
+              {
+                $id=Auth::user()->id;
+                $carts=cart::where('user_id','=' ,$id)->get();
+                $total_cart=Cart::where('user_id','=' ,$id)->get()->count();
+                $wishlists=Wishlist::where('user_id','=' ,$id)->get();
+                $total_wishlist=Wishlist::where('user_id','=' ,$id)->get()->count();
+
+                $shop=shop::find($id);
              
+
+                $categories=Category::Latest()->take(8)->get();
+
+  
+              
+                return view('content.users.pages.shop_details',compact('carts','total_cart','total_wishlist','wishlists','categories','shop'));
+              }
+              else{
+              
+  
+                $categories=Category::Latest()->take(8)->get();
+  
+                $shop=shop::find($id);
+            
+                  return view('content.users.pages.store.store_details',compact('categories','shop'));
+               }
+
+
+            
+       
+              }
 }

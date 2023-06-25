@@ -80,7 +80,7 @@
                                     <h2><a href="{{url('product_details',$product->slug)}}">{{ $product->product }}</a></h2>
                                     <div class="rating-result" title="90%">
                                         <span>
-                                            <span>30%</span>
+                                            <span>{{$product->sale_percent}}</span>
                                         </span>
                                     </div>
                                     <div class="product-price">
