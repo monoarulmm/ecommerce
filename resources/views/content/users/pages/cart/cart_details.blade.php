@@ -33,25 +33,9 @@
                         </thead>
                         <tbody>
 
-                          {{-- <tr>
-                            <td class="image product-thumbnail"><img src="assets/imgs/shop/product-1-2.jpg" alt="#"></td>
-                            <td class="product-des product-name">
-                                <h5 class="product-name"><a href="product-details.html">{{$cart->product}}</a></h5>
-                                <p class="font-xs">{{$cart->product_title}}
-                                </p>
-                            </td>
-                            <td class="price" data-title="Price"><span>{{$cart->price}} </span></td>
-                            <td>
-                                      <input type="number" name="quantity" value="{{$cart->quantity}}" min="1" style="width:75px">
-                            </td>
-                            <td class="text-right" data-title="Cart">
-                                <span>{{$cart->subtotal}}</span>
-                            </td>
-                            <td class="action" data-title="Remove"><a href="{{url('delete_cart',$cart->id)}}" class="text-muted"><i class="fi-rs-trash"></i></a></td>
-                        </tr> --}}
-
+                
                         <tr>
-                            <td class="image product-thumbnail"><img src="assets/imgs/shop/product-1-2.jpg" alt="#"></td>
+                            <td class="image product-thumbnail"><img src="{{asset('assets/imgs/shop/product-1-2.jpg')}}" alt="#"></td>
                             <td class="product-des product-name">
                                 <h5 class="product-name"><a href="product-details.html">J.Crew Mercantile Women's Short-Sleeve</a></h5>
                                 <p class="font-xs">Maboriosam in a tonto nesciung eget<br> distingy magndapibus.

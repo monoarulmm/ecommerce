@@ -28,10 +28,10 @@
                               <div class="social-icons single-share">
                                   <ul class="text-grey-5 d-inline-block">
                                       <li><strong class="mr-10">Share this:</strong></li>
-                                      <li class="social-facebook"><a href="#"><img src="assets/imgs/theme/icons/icon-facebook.svg" alt=""></a></li>
-                                      <li class="social-twitter"> <a href="#"><img src="assets/imgs/theme/icons/icon-twitter.svg" alt=""></a></li>
-                                      <li class="social-instagram"><a href="#"><img src="assets/imgs/theme/icons/icon-instagram.svg" alt=""></a></li>
-                                      <li class="social-linkedin"><a href="#"><img src="assets/imgs/theme/icons/icon-pinterest.svg" alt=""></a></li>
+                                      <li class="social-facebook"><a href="#"><img src="{{asset('assets/imgs/theme/icons/icon-facebook.svg')}}" alt=""></a></li>
+                                      <li class="social-twitter"> <a href="#"><img src="{{asset('assets/imgs/theme/icons/icon-twitter.svg')}}" alt=""></a></li>
+                                      <li class="social-instagram"><a href="#"><img src="{{asset('assets/imgs/theme/icons/icon-instagram.svg')}}" alt=""></a></li>
+                                      <li class="social-linkedin"><a href="#"><img src="{{asset('assets/imgs/theme/icons/icon-pinterest.svg')}}" alt=""></a></li>
                                   </ul>
                               </div>
                           </div>
@@ -109,7 +109,7 @@
                               <div class="col-12 sm-grid-content mb-30">
                                   <div class="post-thumb d-flex border-radius-5 img-hover-scale mb-15">
                                       <a href="blog-details.html">
-                                          <img src="assets/imgs/blog/blog-1.jpg" alt="">
+                                          <img src="{{asset('assets/imgs/blog/blog-1.j')}}pg" alt="">
                                       </a>
                                   </div>
                                   <div class="post-content media-body">
@@ -123,7 +123,7 @@
                               <div class="col-md-6 col-sm-6 sm-grid-content mb-30">
                                   <div class="post-thumb d-flex border-radius-5 img-hover-scale mb-15">
                                       <a href="blog-details.html">
-                                          <img src="assets/imgs/blog/blog-3.jpg" alt="">
+                                          <img src="{{asset('assets/imgs/blog/blog-3.j')}}pg" alt="">
                                       </a>
                                   </div>
                                   <div class="post-content media-body">
@@ -137,7 +137,7 @@
                               <div class="col-md-6 col-sm-6 sm-grid-content mb-30">
                                   <div class="post-thumb d-flex border-radius-5 img-hover-scale mb-15">
                                       <a href="blog-details.html">
-                                          <img src="assets/imgs/blog/blog-4.jpg" alt="">
+                                          <img src="{{asset('assets/imgs/blog/blog-4.j')}}pg" alt="">
                                       </a>
                                   </div>
                                   <div class="post-content media-body">
@@ -151,7 +151,7 @@
                               <div class="col-md-6 col-sm-6 sm-grid-content mb-30">
                                   <div class="post-thumb d-flex border-radius-5 img-hover-scale mb-15">
                                       <a href="blog-details.html">
-                                          <img src="assets/imgs/blog/blog-5.jpg" alt="">
+                                          <img src="{{asset('assets/imgs/blog/blog-5.j')}}pg" alt="">
                                       </a>
                                   </div>
                                   <div class="post-content media-body">
@@ -165,7 +165,7 @@
                               <div class="col-md-6 col-sm-6 sm-grid-content mb-30">
                                   <div class="post-thumb d-flex border-radius-5 img-hover-scale mb-15">
                                       <a href="blog-details.html">
-                                          <img src="assets/imgs/blog/blog-6.jpg" alt="">
+                                          <img src="{{asset('assets/imgs/blog/blog-6.j')}}pg" alt="">
                                       </a>
                                   </div>
                                   <div class="post-content media-body">
@@ -180,7 +180,7 @@
                       </div>
                       <!--Widget ads-->
                       <div class="banner-img wow fadeIn mb-45 animated d-lg-block d-none animated">
-                          <img src="assets/imgs/banner/banner-11.jpg" alt="">
+                          <img src="{{asset('assets/imgs/banner/banner-11.j')}}pg" alt="">
                           <div class="banner-text">
                               <span>Women Zone</span>
                               <h4>Save 17% on <br>Office Dress</h4>
