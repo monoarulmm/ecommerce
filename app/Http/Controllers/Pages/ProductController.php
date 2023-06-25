@@ -545,16 +545,18 @@ class ProductController extends Controller
           
              $wishlists=Wishlist::where('user_id','=' ,$id)->get();
              $total_wishlist=Wishlist::where('user_id','=' ,$id)->get()->count();
+             $total_product=Product::all()->count();
               
-                return view('content.users.pages..product.product_show',compact('products','categories','nproducts','carts','total_cart','wishlists','total_wishlist'));
+                return view('content.users.pages..product.product_show',compact('products','categories','nproducts','carts','total_cart','wishlists','total_wishlist','total_product'));
               }
               else{
               
                 $products = Product::all();
                 $categories = Category::all();
                 $nproducts = Product::Latest()->take(4)->get();
+                $total_product=Product::all()->count();
               
-                return view('content.users.pages..product.product_show',compact('products','categories','nproducts'));
+                return view('content.users.pages..product.product_show',compact('products','categories','nproducts','total_product'));
                }
 
 
@@ -574,30 +576,29 @@ class ProductController extends Controller
               $wishlists=Wishlist::where('user_id','=' ,$id)->get();
               $total_wishlist=Wishlist::where('user_id','=' ,$id)->get()->count();
 
+
               // $products = Product::all();
               $categories = Category::all();
-              $nproducts = Product::Latest()->take(4)->get();
               $search_text=$request->search;
               $products=product::where('product','LIKE',"%$search_text%")->orWhere
               ('shop','LIKE',"%$search_text%")->orWhere
-              ('category_id','LIKE',"%$search_text%")->paginate(10);
+              ('category','LIKE',"%$search_text%")->paginate(10);
 
 
 
             
-              return view('content.users.pages..product.product_show',compact('products','categories','nproducts','carts','total_cart','wishlists', 'total_wishlist'));
+              return view('content.users.pages..product.product_show',compact('products','categories','carts','total_cart','wishlists', 'total_wishlist'));
             }
             else{
             
               // $products = Product::all();
               $categories = Category::all();
-              $nproducts = Product::Latest()->take(4)->get();
               $search_text=$request->search;
               $products=product::where('product','LIKE',"%$search_text%")->orWhere
               ('shop','LIKE',"%$search_text%")->orWhere
-              ('category_id','LIKE',"%$search_text%")->paginate(10);
+              ('category','LIKE',"%$search_text%")->paginate(10);
             
-              return view('content.users.pages..product.product_show',compact('products','categories','nproducts'));
+              return view('content.users.pages..product.product_show',compact('products','categories'));
              }
 
           }

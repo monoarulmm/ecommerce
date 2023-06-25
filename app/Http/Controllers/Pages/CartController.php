@@ -49,6 +49,8 @@ class CartController extends Controller
 
               $cart->name=$user->name;
               $cart->email=$user->email;
+              $cart->address=$user->address;
+              $cart->phone=$user->phone;
               $cart->user_id=$user->id;
 
               $cart->product_title=$product->title;
@@ -134,6 +136,8 @@ class CartController extends Controller
                   $cart->name=$user->name;
                   $cart->email=$user->email;
                   $cart->user_id=$user->id;
+                  $cart->address=$user->address;
+                  $cart->phone=$user->phone;
     
                   $cart->product_title=$product->title;
                   $cart->product=$product->product;

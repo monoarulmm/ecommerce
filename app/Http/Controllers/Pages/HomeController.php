@@ -33,9 +33,11 @@ class HomeController extends Controller
 
           $products=product::Latest()->take(8)->get();
           $nproducts = Product::Latest()->take(4)->get();
+
+          $total_product=Product::all()->count();
   
         
-          return view('content.users.home',compact('carts','total_cart','total_wishlist','wishlists','categories','shops','products','nproducts'));
+          return view('content.users.home',compact('carts','total_cart','total_wishlist','wishlists','categories','shops','products','nproducts','total_product'));
         }
         else{
 
@@ -45,8 +47,8 @@ class HomeController extends Controller
             
             $products=product::Latest()->take(8)->get();
             $nproducts = Product::Latest()->take(4)->get();
-  
-            return view('content.users.home',compact('categories','shops','products','nproducts'));
+            $total_product=Product::all()->count();
+            return view('content.users.home',compact('categories','shops','products','nproducts','total_product'));
          }
    
     }
