@@ -158,6 +158,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI=" crossorigin="anonymous"></script>
 
     <script src="https://kit.fontawesome.com/c6ba8f258a.js" crossorigin="anonymous"></script>
+    
 
 </body>
 </html>

@@ -34,7 +34,8 @@ Route::middleware([
 });
 
 Route::get('/', $controller_path . '\Pages\HomeController@index');
-Route::get('/admindashboard', $controller_path . '\Pages\HomeController@admindashboard')->name('admin.dashboard');
+Route::get('/admindashboard', $controller_path . '\Pages\HomeController@admindashboard')->name('admin.dashboard')->middleware('auth','verified');
+
 
 // category
 Route::get('/category', $controller_path . '\Pages\CategoryController@category_page');
